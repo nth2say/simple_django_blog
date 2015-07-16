@@ -59,4 +59,5 @@ target/
 
 
 #django
+.idea
 db.sqlite3
