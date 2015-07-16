@@ -1,0 +1,9 @@
+# _*_ coding=utf-8 _*_
+from django.http import HttpResponse
+
+
+# Create your views here.
+
+
+def index(request):
+    return HttpResponse("this is index")
