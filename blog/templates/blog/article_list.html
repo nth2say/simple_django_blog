@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul>
+
+    {% if not object_list %}
+        <h1>No Article!!</h1><br/>
+    {% endif %}
+
+    {% for article in object_list %}
+        <li>{{ article.title }}</li>
+        <br/>
+        <li>{{ article.pub_date }}</li>
+        <br/>
+        <li>{{ article.content }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
