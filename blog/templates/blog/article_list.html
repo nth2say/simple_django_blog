@@ -13,11 +13,16 @@
     {% endif %}
 
     {% for article in object_list %}
-        <li>{{ article.title }}</li>
-        <br/>
+        <li><a href="{% url 'blog:article_detail' pk=article.pk %}">{{ article.title }}</a></li>
         <li>{{ article.pub_date }}</li>
-        <br/>
-        <li>{{ article.content }}</li>
+        <li>
+            <ul>
+                {% for tag in article.tag.all %}
+                    <li>{{ tag }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>{{ article.summary }}</li>
     {% endfor %}
 </ul>
 </body>
