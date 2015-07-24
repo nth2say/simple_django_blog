@@ -6,5 +6,28 @@
 </head>
 <body>
 
+
+<h1>{{ object.title }}</h1>
+<br/>
+{{ object.pub_date }}
+
+{% for tag in object.tag.all %}
+    <li>{{ tag }}</li>
+{% endfor %}
+<br/>
+{{ object.content }}
+
+<ul>
+{% for comment in comments %}
+    <li>{{ comment }}</li>
+{% endfor %}
+</ul>
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <li><input type="submit" value="OK"></li>
+</form>
 </body>
 </html>

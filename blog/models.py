@@ -5,7 +5,7 @@ import blog_conf
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=blog_conf.max_tag_length)
+    name = models.CharField(max_length=blog_conf.max_tag_length, unique=True)
 
     def __unicode__(self):  # __unicode__ on Python 2
         return self.name
@@ -23,3 +23,16 @@ class Article(models.Model):
 
     class Meta:
         ordering = ('title',)
+
+
+class Comment(models.Model):
+    to_article = models.ForeignKey(Article)
+    title = models.CharField(max_length=200, blank=True)
+    content = models.CharField(max_length=1000)
+    pub_date = models.DateTimeField()
+
+    def __unicode__(self):
+        return self.title + ':' + self.content
+
+    class Meta:
+        ordering = ('pub_date',)

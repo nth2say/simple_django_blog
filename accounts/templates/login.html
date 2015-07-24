@@ -6,5 +6,15 @@
 </head>
 <body>
 
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Login">
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+
+<a href="/accounts/register">Register</a>
+
 </body>
 </html>
