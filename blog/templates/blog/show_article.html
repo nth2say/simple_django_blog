@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
+
 
 <h1>{{ object.title }}</h1>
 <br/>
@@ -13,11 +14,20 @@
 {% for tag in object.tag.all %}
     <li>{{ tag }}</li>
 {% endfor %}
-
 <br/>
 {{ object.content }}
 
-<br/>
+<ul>
+{% for comment in comments %}
+    <li>{{ comment }}</li>
+{% endfor %}
+</ul>
 
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <li><input type="submit" value="OK"></li>
+</form>
 </body>
 </html>
